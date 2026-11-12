@@ -1,0 +1,282 @@
+:root {
+  --blue: #2f80ed;
+  --blue-dark: #1f63c2;
+  --blue-light: #eaf3ff;
+  --border: #d3e4fa;
+  --text: #1f2d3d;
+  --muted: #6b7a8c;
+  --green: #1e9e5a;
+  --green-bg: #e6f7ee;
+  --red: #d64545;
+  --red-bg: #fdeaea;
+  --yellow: #b7791f;
+  --yellow-bg: #fff6df;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #ffffff;
+  color: var(--text);
+}
+
+/* ---------- Layout ---------- */
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 230px;
+  background: var(--blue-light);
+  border-right: 1px solid var(--border);
+  padding: 20px 14px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.sidebar h2 {
+  font-size: 18px;
+  color: var(--blue-dark);
+  margin: 0 0 24px 8px;
+}
+
+.nav-link {
+  display: block;
+  padding: 10px 14px;
+  margin-bottom: 6px;
+  border-radius: 10px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.nav-link:hover {
+  background: #d9eaff;
+}
+
+.nav-link.active {
+  background: var(--blue);
+  color: #fff;
+}
+
+.content {
+  flex: 1;
+  padding: 28px;
+  max-width: 1100px;
+}
+
+.page-title {
+  margin: 0 0 4px 0;
+  font-size: 26px;
+}
+
+.page-subtitle {
+  margin: 0 0 22px 0;
+  color: var(--muted);
+}
+
+/* ---------- Cards ---------- */
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.stat-label {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--blue-dark);
+}
+
+/* ---------- Slots ---------- */
+.slot-card {
+  text-align: center;
+  border-width: 2px;
+}
+
+.slot-card.available {
+  background: var(--green-bg);
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.slot-card.occupied {
+  background: var(--red-bg);
+  border-color: var(--red);
+  color: var(--red);
+}
+
+.slot-name {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.slot-state {
+  margin-top: 6px;
+  font-size: 15px;
+}
+
+/* ---------- Badges and banners ---------- */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.badge.green {
+  background: var(--green-bg);
+  color: var(--green);
+}
+
+.badge.red {
+  background: var(--red-bg);
+  color: var(--red);
+}
+
+.badge.yellow {
+  background: var(--yellow-bg);
+  color: var(--yellow);
+}
+
+.badge.blue {
+  background: var(--blue-light);
+  color: var(--blue-dark);
+}
+
+.banner {
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  font-size: 15px;
+}
+
+.banner.error {
+  background: var(--red-bg);
+  color: var(--red);
+  border: 1px solid var(--red);
+}
+
+.banner.info {
+  background: var(--blue-light);
+  color: var(--blue-dark);
+  border: 1px solid var(--border);
+}
+
+.section-title {
+  margin: 28px 0 12px 0;
+  font-size: 19px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 760px) {
+  .app {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 12px;
+  }
+
+  .sidebar h2 {
+    width: 100%;
+    margin: 0 0 6px 4px;
+  }
+
+  .nav-link {
+    margin: 0;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .content {
+    padding: 16px;
+  }
+}
+/* ---------- Buttons and tables ---------- */
+.btn {
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 9px 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--blue-dark);
+}
+
+.btn.secondary {
+  background: var(--blue-light);
+  color: var(--blue-dark);
+}
+
+.table-wrap {
+  overflow-x: auto;
+  padding: 0;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table th {
+  background: var(--blue-light);
+  text-align: left;
+  padding: 12px 14px;
+  color: var(--blue-dark);
+}
+
+.table td {
+  padding: 11px 14px;
+  border-top: 1px solid var(--border);
+}
+.input {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 9px 12px;
+  font-size: 14px;
+  width: 200px;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
